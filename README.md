@@ -58,6 +58,7 @@ const arr = [
 
 console.log('native compare', [...arr].sort()); // [ 'c', '𝖺', 'ｂ' ]
 console.log('locale compare', [...arr].sort((a, b) => a.localeCompare(b))); // [ '𝖺', 'ｂ', 'c' ]
+console.log('null locale compare', [...arr].sort(new Intl.Collator('zxx').compare)); // [ '𝖺', 'ｂ', 'c' ]
 console.log('codepoint compare', [...arr].sort(String.codePointCompare)); // [ 'c', 'ｂ', '𝖺' ]
 ```
 
@@ -95,13 +96,13 @@ function codePointCompare(left, right) {
 ```
 </details>
 
-### A "locale-less" collation
+### Null locale collation
 
-There are already alternative comparators in the language, e.g. `String.prototype.localeCompare` or `Intl.Collator.prototype.compare`. While these operate on codepoints, they take into consideration the locale and collapse characters in the same equivalence class.
+There are already alternative comparators in the language, e.g. `String.prototype.localeCompare` or `Intl.Collator.prototype.compare`. While these operate on codepoints, they take into consideration the locale and collapse characters in the same equivalence class. This is also the case for the `zxx` "locale" in the [Stable Formatting proposal](https://github.com/tc39/proposal-stable-formatting).
 
-We could imagine a collation that does not perform any locale specific logic, and simply enables comparing strings by their Unicode codepoints.
+While we could imagine a collation option for a null locale that does not perform any equivalence class or grapheme logic, and simply enables comparing strings by their Unicode codepoints, this seems to [go counter](https://github.com/tc39/proposal-stable-formatting/issues/13) to the core of Intl.
 
-However `Intl` is a normative optional part of the spec and this would require JS engines that opt-out to implement enough of `Intl` just to offer a comparison that is agnostic of Internationalization concerns.
+Furthermore `Intl` is a normative optional part of the spec and this would require JS engines that opt-out to implement enough of `Intl` just to offer a comparison that is agnostic of Internationalization concerns.
 
 ## Q&A
 
