@@ -11,6 +11,7 @@ A TC39 proposal for a new method to compare strings by Unicode codepoints.
 **Champions**:
 - Mathieu Hofman (@mhofman)
 - Mark S. Miller (@erights)
+- Christopher Hiller (@boneskull)
 
 ## Motivation
 
