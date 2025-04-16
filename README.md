@@ -6,7 +6,7 @@ A TC39 proposal for a new method to compare strings by Unicode codepoints.
 
 [The TC39 Process](https://tc39.es/process-document/)
 
-**Stage**: 0
+**Stage**: 1
 
 **Champions**:
 - Mathieu Hofman (@mhofman)
