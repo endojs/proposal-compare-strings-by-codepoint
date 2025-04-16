@@ -123,6 +123,10 @@ Like for operators, this would be a breaking change. Anyone interested in portab
 
 The Agoric platform implements collections that use a well defined sort order for keys instead of using insertion order. These collections can be either "heap-only", or backed by a SQLite DB. To provide a consistent iteration order independent of the backing store, the heap implementation needs to use a comparator compatible with the sort order implemented by SQLite.
 
+## Presentations
+
+- [2025-04 plenary](https://docs.google.com/presentation/d/1eTuB1jjgb2_xG_zMNmkhleJx1F0QviMEwkkBUL9ezPQ) ([pdf slides](compare-codepoint-talks/compare-by-codepoint.pdf))
+
 ## See also
 
 https://github.com/endojs/endo/pull/2008
